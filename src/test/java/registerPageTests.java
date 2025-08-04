@@ -3,6 +3,7 @@ import com.sellingo.Utility.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import static com.sellingo.Enums.NavItem.ACCOUNT;
 import static com.sellingo.Enums.Page.*;
 
 public class registerPageTests extends BaseTest {
@@ -35,20 +36,20 @@ public class registerPageTests extends BaseTest {
 
     // second using dedicated functions for certain actions.
     // as this approach is good, it can sometimes get really bloated with custom methods
-//    @Test
-//    public void registerTestShortened() throws InterruptedException {
-//        User testUser = new User();
-//        registerPage.verify();
-//        registerPage.register(testUser);
-//        popUp.verify();
-//        popUp.close();
-//        nav.openSidebar(ACCOUNT);
-//        account.verify();
-//        account.openMyAccountPage();
-//        myAccountPage.verify();
-//        String actualEmailValue = myAccountPage.getEmailValue();
-//        Assert.assertEquals(actualEmailValue, testUser.email);
-//        myAccountPage.logout();
-//    }
+    @Test
+    public void registerTestShortened() throws InterruptedException {
+        User testUser = new User();
+        registerPage.verify();
+        registerPage.register(testUser);
+        popUp.verify();
+        popUp.close();
+        nav.openSidebar(ACCOUNT);
+        account.verify();
+        account.openMyAccountPage();
+        myAccountPage.verify();
+        String actualEmailValue = myAccountPage.getEmailValue();
+        Assert.assertEquals(actualEmailValue, testUser.email);
+        myAccountPage.logout();
+    }
 
 }
